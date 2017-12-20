@@ -36,13 +36,37 @@ Overview
    - Additional reading: Paul Viola & Michael Jones, 2001
 Rapid Object Detection using a Boosted Cascade of Simple Features
    - http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.10.6807&rep=rep1&type=pdf
+    - paper is very straightforward and is easy to understand.
 
 ### 2) Haar-Like Features
   - Foundation of Viola-Jones Algorithm which is actually used in open city. 
-
+  - Hungarian mathematician in the 19th century, Alfred Haar, developed the mathematical concept called the haar wavelet, basis of wave function, fourier 
+  - descendants of haar wavelet
+  - what is it?
+    - 1) Edge features
+    - 2) Line features
+    - 3) Four-rectangle features
+  - pixel, identify end of table, columns of pixels, how they work out
+  - e.g. haar-like features (mouth lips, line feature for instance)
+  - e.g. edge features (eyebrow vs. lighter forehead)
+  - e.g. edge features (nose, bridge of the nose - greyscale, line type of feature
+  - pixel - greyscale (0 to 255) normalized to 0 and 1
+  - real world, average intensity, average intensity, simply subtract one from the other
+  - B - W = 0.402, closer to 1 the closer to real-world (depends on lighting, never going to be exact 1)
+  - threshold are indentified through training
+ 
 ### 3) Integral Image 
   - Hack used in the Viola-Jones Algorithm, part of the success of the algorithm can be attributed to this integral image. 
-
+  - Haar-like features (commonly found features on the face, calculated through the pixel value, threshold, calculate if feature is present or not, sum of all the values) -> quite a costly computation, lots of time and power
+  - Hack to do the above quickly
+  - Integral Image
+    - 0 to 10, easier to look 
+    - value for every single feature (calculate haar-like feature, intensity in the box, can be computationally expensive, real-time computer vision is costly for time, minimize time spent on this. Construction of integral image, exactly the same size
+    - Any square in intergral, sum of the original image above and to the left, and fill the entire integral image that way (rectangle)
+    - very efficient hack, it works because they're rectangles
+    - you'll only need to look at four values regardless of the size of the rectangle (1000 x 1000) -> 4 vs. 1 million, image doesn't change propotionally, possible haar-like features are rectangles
+    - might be a bit rigid, with computation efficiency
+    
 ### 4) Training Classifiers
   - How the training process actually happens. 
   
