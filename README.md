@@ -69,6 +69,14 @@ Rapid Object Detection using a Boosted Cascade of Simple Features
     
 ### 4) Training Classifiers
   - How the training process actually happens. 
+  - Two stages (training & detection)
+  - Training these feautres (five basic feature, narrow, long, which of them descriptive of a face common features of a face)
+  - An algorithm won't know common features (beard, lighting etc.) help algorithm know which is important and not
+  - Threshold, greayscale, 100% dark and clsoe to dark contast has to exceed the threshold. algorithm understand the threshold
+  - Shrinks 24px 24px (why does it shrink)? -> features are scalable, 500x500 different variations (10x10, 100x100) etc. take forever to look through, scale down very limited, find still dark but you're actually applying it, scale the features up.
+  - training scale down, in real life detecting, scale features up.
+  - Missing is data, one image is not enough, we need to supply lots of images, which of the features is common, finding a face, 4916 manually label like each one instance a face, 24px, training your own algorithm, for all the face, take a mirror image, it's a brand new image, they instantly double the number images 9000 to 10000, features for faces. common just for faces
+  - need to supply non-face images 9544 images don't have to be 24px, treat each one as a seperate (150,000 million etc.) 
   
 ### 5) Adaptive Boosting (Adaboost)
   - Another hack used to help the viola-jones algorithm in its success
